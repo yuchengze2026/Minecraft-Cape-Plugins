@@ -1,0 +1,116 @@
+# 所有聊天、系统、管理与日志模板。支持 &颜色、&#RRGGBB、{变量}、多行或字符串列表。
+# 空字符串或空列表可关闭提示。错误 detail 是诊断数据，可在模板中省略。
+prefix: ''
+admin-prefix: '&6[CapeBridge] &f'
+pack:
+  prompt: 可选披风资源包：接受后显示披风，拒绝仍可正常游玩。
+  download-failed: '&e披风资源包下载失败，已暂停披风显示，仍可正常游玩。输入 /cape pack 可重试。'
+  reload-failed: '&e披风资源包加载失败，已暂停披风显示，仍可正常游玩。输入 /cape pack 可重试。'
+  unconfigured: '&e披风资源包分发尚未配置，请联系管理员。'
+cape:
+  unavailable: '&c该披风不可用。'
+  saving: '&7正在保存披风选择……'
+  sync-unconfigured: '&c披风同步未配置完成，请联系管理员。'
+  preview: '&b正在试穿「{cape}&b」，按 F5 查看；仅自己可见。&7使用 /cape 返回衣橱。'
+  locked: '&c该披风尚未解锁。'
+  preview-ended: '&7试穿已结束。'
+  preview-pack: '&e加载披风资源包后才能试穿，输入 /cape pack 可主动加载。'
+menu:
+  no-permission: '&c你没有打开衣橱的权限。'
+  syncing: '&e正在同步披风目录，请稍候……'
+  syncing-pack: '&e正在同步披风目录，请稍后重试。'
+admin:
+  no-permission: '&c你没有管理披风的权限。'
+  players-only: Players use /cape; proxy administrators use bcape.
+  reloaded: '{admin-prefix}显示及菜单配置已重载。'
+  texts-reloaded: '{admin-prefix}提示和GUI文本已重载。'
+  reload-failed: '{admin-prefix}&c重载失败，继续使用原文本：{error}'
+  offline: Player offline
+  resetstats: '{admin-prefix}Timing counters reset.'
+  inspect: '{admin-prefix}{details}'
+  stats: '{admin-prefix}{details}'
+commands:
+  dynamic:
+    description: 打开动态披风面板
+    usage: /dynamiccape
+  cape:
+    description: Open the network cape wardrobe
+    usage: /cape [pack|ver]
+  admin:
+    description: Local diagnostic and rendering controls
+    usage: /capebridge [reload|texts|inspect <player>|resetstats]
+log:
+  ready: CapeBridge {version} wardrobe ready; use /cape on any backend.
+  startup-saved: 启动失败，脱敏诊断已保存到 plugins/CapeBridgeBackend/startup-error.txt
+  startup-save-failed: 无法保存启动诊断：{error}
+  motion-migrated: 已备份旧配置：启用整片披风，静止停止摆动，额外左右侧摆关闭。
+  fitting-migrated: 已备份贴合参数：采用原版身体朝向、内侧上沿转轴及加厚披风。
+  pack-unavailable: Optional cape pack {status} for {player}; capes hidden, connection retained.
+  material-unsupported: 'Unsupported cape material: {id}'
+  sync-discarded: 'Discarded cape sync: {error}'
+  body-unavailable: 'Native torso rotation unavailable: cape hidden; no head-yaw fallback.'
+  protocol-fallback: Original viewer protocol lookup unavailable; using PacketEvents client version.
+  native-cape-fallback: 'Native cape state unavailable; packet filtering remains active: {error}'
+  clock-fallback: Tick-end event unavailable; cape updates use scheduler fallback.
+report:
+  format: 'CapeBridge startup failure
+
+    Stage: {stage}
+
+    Server: {server}
+
+    Java: {java}
+
+    PacketEvents: {dependency}
+
+
+    {trace}'
+  redacted: '[REDACTED]'
+stats:
+  format: selected={selected} entities={entities} previews={previews} sections=1 phase={phase} immediatePackets={packets} period={period} ticks task={active}
+    samples={samples} avg={average}us max={maximum}us mounts={mounts} suppressedMoves={suppressed}
+inspect:
+  format: head={head} body={body} render={render} bodySource=client-torso-rules serverBody={server-body} side={side} crouched={crouched} bend={bend} thickness={thickness}
+    backSurface={back} mountY={mount-height} mountProfile={mount-profile} viewerProtocol={viewer-protocol} pivot={pivot} {native-state}
+diagnostic:
+  dependency-missing: not installed
+  skin-unavailable: nativeCapeState=unavailable nativeCapeMask=per-viewer settingsPreserved=true
+  none: none
+  skin-format: nativeCapeIndex={index} nativeSkinFlags={flags} nativeCape={cape} nativeCorrections={corrections} nativeCapeMask=per-viewer settingsPreserved=true
+stages:
+  configuration: configuration
+  renderer: renderer / PacketEvents integration
+  listeners: listeners and commands
+  ready: ready
+errors:
+  unexpected: '{detail}'
+  cannot-preserve-optional-pack-configuration: Cannot preserve optional pack configuration{detail}
+  cannot-preserve-the-previous-render-configuration: Cannot preserve the previous render configuration{detail}
+  cannot-preserve-fitting-configuration: Cannot preserve fitting configuration{detail}
+  cape-attachment-closed: Cape attachment closed{detail}
+  unsupported-native-display-metadata-schema: Unsupported native display metadata schema{detail}
+  unexpected-native-display-metadata-type-at: Unexpected native display metadata type at {detail}
+  cannot-resolve-native-display-metadata-slot: 'Cannot resolve native display metadata slot: {detail}'
+  cannot-capture-native-entity-metadata: Cannot capture native entity metadata{detail}
+  cannot-access-native-skin-state: Cannot access native skin state{detail}
+  cannot-read-native-skin-state: Cannot read native skin state{detail}
+  cannot-update-native-skin-state: Cannot update native skin state{detail}
+  cannot-identify-cape-pack-status: Cannot identify cape pack status{detail}
+  cannot-offer-optional-cape-pack: Cannot offer optional cape pack{detail}
+  cannot-resolve-native-player-skin-accessor: Cannot resolve native player skin accessor{detail}
+  native-player-skin-accessor-not-found: Native player skin accessor not found{detail}
+
+version:
+  info: '&6CapeBridge &7| &f子服: &a{backend} &7| &fBC: &a{proxy}'
+  unknown: '尚未收到 BC 版本信息'
+  console: '请在游戏内查询，或在 BC 执行 bcape ver'
+
+pose:
+  usage: '&e用法：/capebridge pose <watch|stop|export> <玩家>；/capebridge pose reference <玩家> <版本>'
+  watching: '&a开始采样 {player} 的身体数据。客户端未上传的数据将明确标记为不可读取。'
+  stopped: '&a已停止 {player} 的身体数据采样。'
+  limit: '&c同时最多采样 8 名玩家，请先停止其他采样。'
+  export-queued: '&e已排队导出至 pose-diagnostics/{file}，文件生成后可检查。'
+  export-failed: '身体数据导出失败：{error}'
+  sample-failed: '已停止 {player} 的异常数据采样：{error}'
+  command-failed: '&c身体诊断操作失败：{error}'

@@ -1,0 +1,65 @@
+# BC 聊天、系统、管理与日志。支持 &颜色、&#RRGGBB、{变量}、多行或字符串列表。
+prefix: '&6[CapeBridge] &f'
+admin:
+  no-permission: 你没有管理披风的权限。
+  usage: list | reload | texts | add <id> <file.png> | addblock <id> <MATERIAL> | set <player|UUID> <id> | clear <player|UUID>
+  list: '{capes}'
+  list-separator: ', '
+  reloaded: 资源、菜单及资源包已更新，共 {count} 款。
+  texts-reloaded: 提示文本已重载。
+  added: 已添加并同步：{id}
+  saved: 已保存。
+  failed: 失败：{error}
+  busy: 披风服务繁忙，请稍后重试。
+notice:
+  unavailable: '&c该披风不可用或你没有解锁权限。'
+  removed: '&7已取下披风。'
+  equipped: '&a已穿戴：{cape}'
+  save-failed: '&c保存失败，请稍后重试。'
+  busy: '&c披风服务繁忙，请稍后重试。'
+  admin-updated: '&a管理员已更新你的披风。'
+log:
+  ready: 'CapeBridge {version}: {count} capes; player menus are enabled on every backend.'
+  help-failed: 无法更新披风格式说明文件：{error}
+  sync-failed: 'Sync failed: {error}'
+  admin-failed: 'Admin operation: {error}'
+  save-failed: '{error}'
+  image-missing: 已跳过披风 '{id}'：缺少 capes/{file}。配置与原模型编号保留，补回图片后执行 bcape reload 自动恢复。
+  image-invalid: 已跳过披风 '{id}'：图片 capes/{file} 无效或无法读取（{error}）。修复后执行 bcape reload。
+  id-invalid: 已跳过披风 '{id}'：ID 只能包含小写字母、数字、下划线或短横线，长度 1–32。配置保留，请修正 ID 及对应 PNG 文件名后执行 bcape reload。
+pack:
+  description: CapeBridge optional capes (1.20.1 - 1.21.11 / 26.1 - 26.3)
+errors:
+  cape-image-dimensions: '支持原版 2:1 展开图（64–512 像素宽）或 5:8 单体图'
+  cape-animation-dimensions: '动态披风需要原版展开图的纵向帧序列（2–64 帧）'
+  cape-animation-timing: '每帧时长需要是 1–200 的整数'
+  unexpected: '{detail}'
+  cannot-initialize-capebridge: Cannot initialize CapeBridge{detail}
+  plugin-is-shutting-down: Plugin is shutting down{detail}
+  sync-secret-must-contain-at-least-32-characters: sync-secret must contain at least 32 characters{detail}
+  invalid-public-url: Invalid public-url{detail}
+  add-id-file-png-addblock-id-material: add <id> <file.png> / addblock <id> <MATERIAL>{detail}
+  set-player-uuid-id-clear-player-uuid: set <player|UUID> <id> / clear <player|UUID>{detail}
+  unknown-cape: Unknown cape{detail}
+  player-needs: Player needs {detail}
+  unknown-command-use-bcape: Unknown command; use bcape{detail}
+  maximum: Maximum {detail}
+  invalid-cape-type: 'Invalid cape type: {detail}'
+  duplicate-model-id: 'Duplicate model ID: {detail}'
+  invalid-cape-configuration: 'Invalid cape configuration: {detail}'
+  resource-id-must-be-lowercase-a-z-0-9-or: Resource ID must be lowercase a-z, 0-9, _ or -{detail}
+  invalid-material: Invalid material{detail}
+  png-must-be-directly-inside-capes: PNG must be directly inside capes/{detail}
+  invalid-png: Invalid PNG{detail}
+  png-required: PNG required{detail}
+  official-cape-atlas-required-64x32-128x64-up-to-512x256-old-5-8-f: 'Official cape atlas required: 64x32, 128x64, ... up to 512x256;
+    old 5:8 front artwork must be converted{detail}'
+  custommodeldata-collision: 'CustomModelData collision: {detail}'
+  path-outside-plugin-data-directory: Path outside plugin data directory{detail}
+  symbolic-links-are-not-permitted: Symbolic links are not permitted{detail}
+  link-escapes-plugin-data-directory: Link escapes plugin data directory{detail}
+  png-must-be-a-regular-file-not-a-link: PNG must be a regular file, not a link{detail}
+  png-must-be-1-mib: PNG must be <= 1 MiB{detail}
+
+version:
+  proxy: '&6CapeBridge BC &a{version}'

@@ -1,0 +1,261 @@
+# 网页、HTTP、命令和日志文本。web.* 是公开文案，不要放入密码。支持 {变量}。
+web:
+  wardrobe:
+    show: 在披风橱柜中显示
+    public: 所有玩家可在橱柜中查看
+    hidden: 已隐藏 · 仅全部披风权限可见
+    help: 关闭后，仅拥有 capebridge.cape.all 权限的玩家可在橱柜中查看；佩戴权限不变。
+  delete:
+    button: 删除披风
+    confirm: '删除「{name}」并更新资源包？'
+  dynamic:
+    arrangement: 图片排布
+    strip: 独立帧 / 单列竖向序列
+    grid: 网格帧图
+    auto: 自动识别每帧格式
+    columns: 每行帧数（列）
+    rows: 行数
+    order: '从左到右、从上到下播放；8 列 × 8 行为 64 帧。尺寸无法整除时自动分配边界像素。'
+    fit: 单体图比例校正
+    contain: 保留完整画面
+    cover: 居中裁剪填满
+    grid-invalid: 网格行列须为正整数，总帧数不能超过 64，也不能超过图片像素尺寸
+    grid-format: 无法判断网格内的每帧格式，请手动选择原版展开图或 5:8 单体图
+    ambiguous: 两种每帧格式均可能匹配，请手动选择原版展开图或 5:8 单体图
+    grid-ready: '{frames} 帧 · {columns} 列 × {rows} 行 · {width}×{height} · 从左到右、从上到下播放'
+    corrected: ' · 已逐帧校正比例'
+    processing: 正在拆分和校正动画帧…
+    gif-timing: 保留 GIF 原速度（适配游戏帧率）
+    gif-help: GIF 自动还原完整画面并循环播放；行列设置仅用于 PNG 网格。高帧率或超过 64 帧时按时间抽帧。
+    gif-ready: 'GIF {sourceFrames} 帧 → {frames} 帧 · 循环 {duration} 秒'
+    gif-adapted: ' · 已适配游戏时间刻度'
+    gif-metadata: 下载动画参数
+    gif-file: 动画文件需为 PNG 或 GIF
+    files: PNG / GIF 动画文件（可多选）
+    gif-limit: GIF 输入最大 10 MiB，请缩小图片后重试
+    title: 动态贴图披风
+    native: 免 MOD · 自动循环
+    label: 动态贴图
+    help: '支持 GIF、PNG 独立帧、单列竖向序列或网格帧图；输出最多 64 帧。网格从左到右、从上到下播放。'
+    frames: PNG / GIF 动画文件（可多选）
+    ticks: 每帧时长（1 = 50 毫秒）
+    atlas: 每帧为原版 2:1 展开图
+    front: 每帧为 5:8 单体图
+    preview: 动态贴图预览
+    empty: 选择动画帧后在这里预览
+    upload: 上传动态披风
+    download: 下载帧序列 PNG
+    limit: '输出最多 64 帧；PNG 输入及输出小于 1 MiB，GIF 输入最大 10 MiB。请降低分辨率或帧数'
+    png: 动画帧需要 PNG 格式
+    dimensions: 帧尺寸与所选格式不符，请检查原版图或单体图选项
+    minimum: 动态披风至少需要两帧
+    timing: 每帧时长应为 1–200 的整数
+    ready: '{frames} 帧 · {width}×{height} · 自动循环播放'
+  html:
+    text-001: Cape Studio · 披风管理
+    text-002: Cape Studio
+    text-003: CapeBridge 披风管理
+    text-004: 正在连接
+    text-005: 退出登录
+    text-006: ADMIN ACCESS
+    text-007: 你的披风工作室。
+    text-008: 在 BC 控制台执行
+    text-009: capeweb
+    text-010: ，输入一次性登录码。
+    text-011: 管理员登录码
+    text-012: 进入工作室
+    text-013: →
+    text-014: 登录码仅使用一次。普通玩家无法访问管理功能。
+    text-015: CAPE WORKSHOP
+    text-016: 把创意，披在身上。
+    text-017: 上传图案，修正格式，其余交给 CapeBridge。
+    text-018: 下载当前资源包
+    text-019: 添加披风
+    text-020: 01 / 上传与修复
+    text-021: ↑
+    text-022: 拖入贴图，或点击选择
+    text-023: PNG / JPG / WebP · 最大 10 MiB
+    text-024: 单面图 5:8 或官方图集 2:1，均可自动处理
+    text-025: 选择图片后，自动检查比例、尺寸和透明区域。
+    text-026: 披风 ID
+    text-027: 小写字母、数字、下划线或短横线
+    text-028: 菜单名称
+    text-029: 玩家看到的名称，最多 20 个字符
+    text-030: 图片类型
+    text-031: 自动识别
+    text-032: 单面图 · 5:8
+    text-033: 官方图集 · 2:1
+    text-034: 输出图集
+    text-035: 自动选择合适尺寸
+    text-036: 64 × 32
+    text-037: 128 × 64
+    text-038: 256 × 128
+    text-039: 512 × 256
+    text-040: 修复选项
+    text-041: 单面图比例处理
+    text-042: 保比例裁剪，填满披风
+    text-043: 完整保留，透明补边
+    text-044: 缩放方式
+    text-045: 像素清晰
+    text-046: 平滑缩放
+    text-047: 裁剪水平位置
+    text-048: 裁剪垂直位置
+    text-049: 单面图自动裁掉透明外边缘
+    text-050: 不自动删除黑色像素，避免损伤黑色披风。图集会保留官方六面的布局；单面图会补齐内侧和边缘。
+    text-051: 替换同名披风（先备份，保留模型编号）
+    text-052: 一键修复
+    text-053: 修复并上传
+    text-054: 效果预览
+    text-055: 等待贴图
+    text-056: 你的下一件披风
+    text-057: 透明部分不会补成黑色
+    text-058: 外侧
+    text-059: 内侧
+    text-060: 立体
+    text-061: 拖动预览可旋转 · 预览使用最终修复后的贴图
+    text-062: 最终图集
+    text-063: 下载 PNG ↓
+    text-064: 支持四档标准图集，自动生成 PNG，保留透明区域。
+    text-065: 披风库
+    text-066: '0'
+    text-067: 选择已有披风可重新修复或替换贴图。
+    text-068: 刷新列表 ↻
+    text-069: 还没有披风。上传第一张贴图试试。
+    text-070: 上传会自动登记、重建资源包并同步目录。权限仍由 LuckPerms 管理。
+    text-071: 粘贴 3 分钟内有效的登录码
+    text-072: 例如 aurora
+    text-073: 例如 极光披风
+    text-074: 披风六面预览，可拖动旋转
+    text-075: 预览视角
+    text-076: 修复后的官方披风图集
+  language: zh-CN
+  js:
+    text-001: PNG · {size} KiB · {layout} · 透明区域保留
+    text-002: 识别为{layout} · 原图 {width}×{height} · {format}
+    text-003: '{name} · 模型 {model} · 资源包 {size} KiB'
+    text-004: 请求未完成
+    text-005: 管理员入口
+    text-006: 已连接 BC
+    text-007: 图片像素过大，请先缩小到 1600 万像素以内
+    text-008: 不支持此图片内容。请选择 PNG、JPG 或 WebP，不支持 SVG 和动图。
+    text-009: 原图超过 10 MiB，请先缩小图片
+    text-010: 图片像素过大，请先缩小
+    text-011: 图片全透明，没有可用的披风图案
+    text-012: 官方披风区域全透明，请选择“单面图”重新修复
+    text-013: 图片编码失败
+    text-014: 已生成正面、内侧和四个边缘
+    text-015: 保留六面图集布局
+    text-016: 单面图
+    text-017: 官方图集
+    text-018: 转为 PNG
+    text-019: 补齐六面
+    text-020: 校正尺寸
+    text-021: 按 5:8 保比例裁剪
+    text-022: 透明补边至 5:8
+    text-023: ' · 格式合规'
+    text-024: 已修复：标准 PNG、正确比例、六面完整。可以直接上传。
+    text-025: 请重新登录后下载资源包
+    text-026: 已启用 · 点击修复
+    text-027: 纯色 / 无 PNG · 可替换
+    text-028: 已停用
+    text-029: 贴图异常 · 点击修复
+    text-030: 请选择用于替换的图片
+    text-031: BC 内置资源包分发已启用。若公网地址另接静态托管/CDN，请确认新文件也已同步。
+    text-032: 当前使用外部资源包托管：上传后请同步生成的 capes.zip 到原下载地址。
+    text-033: 无法读取原贴图
+    text-034: 披风库已刷新
+    text-035: 读取 PNG 失败
+    text-036: ID 只能包含小写字母、数字、下划线、短横线，最多 32 位
+    text-037: 请输入菜单名称
+    text-038: 正在导入与重建…
+    text-039: 拥有该权限或 capebridge.cape.all 的玩家即可使用。
+    text-040: 披风已上传并自动配置
+    text-041: 修复并上传 →
+  dimensions: '{width} × {height}'
+  issues: ' → {issues}'
+  issue-separator: ' / '
+  success: ✓ {message}
+server:
+  wardrobe:
+    saved: 橱柜显示设置已保存并同步
+    invalid: 请提供披风编号及有效的显示开关
+    proxy-update: 请更新 BC 披风插件后使用橱柜显示设置
+  gif:
+    invalid: GIF 无法读取或帧数据损坏，请重新导出后上传
+    limit: GIF 超出处理上限（10 MiB、512 源帧、画布 8388608 像素、帧像素合计 67108864）
+    duration: GIF 循环过长，请缩短至 640 秒以内
+    options: GIF 转换选项无效，请检查输出尺寸和每帧格式
+    output-limit: 转换后的 PNG 超过 1 MiB，请降低输出尺寸
+    proxy-update: 保留 GIF 逐帧时长需要同时更新 BC 披风插件
+  animation:
+    dimensions: 动态 PNG 必须为 64–512 像素宽的原版展开图纵向序列（2–64 帧）
+    timing: 每帧时长应为 1–200 的整数
+  delete:
+    missing: 此披风不存在或已删除
+    success: 披风已删除，资源包已更新
+  text-001: 请先安装 CapeBridgeProxy
+  text-002: 披风网页操作未完成
+  text-007: 披风管理网页启动失败；原 CapeBridge 未修改
+  text-008: CapeBridge 正在关闭，请启动完成后再上传
+  text-009: 原资源包下载服务未运行；请完整重启 BC 恢复后再上传（网页不会重新占用端口）
+  text-010: CapeBridgeProxy 尚未初始化
+  text-011: 披风 ID 无效
+  text-012: 贴图不存在或超过 10 MiB
+  text-013: ID 只能使用小写字母、数字、下划线、短横线，最多 32 位
+  text-014: 菜单名称最多 20 个字符，不含控制字符
+  text-015: 同名披风已存在；勾选替换后再上传
+  text-016: 资源包尚未生成
+  text-017: 披风已登记，资源包已重建并同步目录
+  text-018: 导入未完成，已尝试恢复原文件；请检查 BC 控制台
+  text-019: 只接受修复后的 PNG，大小须小于 1 MiB
+  text-020: PNG 无法解码
+  text-021: 贴图需为 5:8 单体图或标准原版 2:1 图集（64–512 像素宽）
+  text-022: 披风区域全透明，请先修复布局
+  text-023: PNG 编码失败
+  text-024: 修复后的文件过大
+  text-025: PNG 内容损坏，请重新修复
+  text-026: 不允许链接目录
+  text-027: 路径无效
+  text-028: 不允许链接文件
+  text-029: 备份路径无效
+  text-030: 备份越界
+  text-031: 公开监听必须设置 public-base-url；建议保持本机监听并使用 HTTPS 反向代理
+  text-032: public-base-url 无效
+  text-033: public-base-url 必须是 HTTP(S) 站点地址，不含路径或登录信息
+  text-034: 已登录
+  text-035: 管理页正在关闭
+  text-036: 访问主机不匹配
+  text-037: 页面不存在
+  text-038: 请求来源不匹配
+  text-039: 尝试次数过多，请 1 分钟后重试
+  text-040: 登录码错误或已过期，请在 BC 执行 capeweb 重新生成
+  text-041: 请先使用 BC 管理员登录码登录
+  text-042: 请求验证失败，请刷新页面重新登录
+  text-043: 已退出
+  text-044: 另一个披风正在导入，请稍后重试
+  text-045: 上传内容不完整
+  text-046: 图片编码无效
+  text-047: 导入失败：
+  text-048: 接口不存在
+  text-049: 文件过大，请先修复为标准图集
+  text-050: 处理未完成，请检查 BC 控制台；运行配置不会通过接口返回
+  text-051: 查询参数无效
+  text-052: 查询编码无效
+  text-053: 请使用 JSON 请求
+  text-054: 请求长度无效
+  text-055: 未知或重复字段
+  text-056: 字段类型无效
+  text-057: JSON 尾部存在额外内容
+  text-058: JSON 内容无效
+  text-059: 请求方法不支持
+command:
+  open-hover: '&e点击打开披风管理页'
+  copy-hover: '&e点击复制完整的一次性登录码'
+  prefix: '&6[CapeWeb] &f'
+  no-permission: '{command.prefix}你没有管理披风的权限。'
+  url: '{command.prefix}管理页：{url}'
+  code: '{command.prefix}一次性登录码（3分钟有效）：{code}'
+  reloaded: '{command.prefix}网页管理文本已重载；刷新浏览器查看。'
+  failed: '{command.prefix}文本重载失败：{error}'
+log:
+  ready: 披风管理网页已启动：{url}；在 BC 控制台执行 capeweb 获取一次性登录码。

@@ -1,0 +1,35 @@
+# 与BC的sync-secret保持一致。
+sync-secret: CHANGE_ME_COPY_FROM_PROXY
+render:
+  update-ticks: 1
+  view-distance-blocks: 32
+  fitting-profile: body-v2
+  back-clearance: 0.015
+  # 连续高速转身时适度预测；如需旧版效果，可设为 false 后执行 /capebridge reload。
+  turn-prediction: true
+  # 小角度保持原跟随；跨越高速门槛时渐进补偿，减速时避免冻结更新。
+  transition-smoothing: true
+  # 仅 1.21.11+ 客户端使用。1.20.1/1.21.1 保留原补偿；可设 1 / 60 比较原效果。
+  modern-prediction-ticks: 1.25
+  modern-max-lead: 90.0
+  # 高速持续转身时减少插值重置，停转或反向立即恢复普通更新。
+  smooth-turns: true
+  # 区分本人和其他玩家的身体插值时序；不适用时可关闭比较。
+  observer-correction: true
+  tolerate-turn-gaps: true
+  # 完整的一片；跑步/飞行向后扬起，静止回落，无分段和自动波浪。
+  motion-profile: rigid-v1
+  motion-scale: 1.0
+  # 1.21/1.21.1+ 客户端每 tick 的下摆角度变化上限；不改变转身跟随和肩部位置。
+  modern-max-bend-step: 2.5
+  max-side-angle: 0.0
+  max-bend-angle: 65.0
+menu:
+  preview-seconds: 15
+resource-pack:
+  # 仅实际显示插件披风（含试穿）时屏蔽对应观看者的 SR/原版披风位。
+  # 未装备、结束试穿、拒绝或加载失败时自动恢复原版/SR披风，保留客户端显示偏好。
+  # 旧键 hide-native-cape-when-loaded 不再生效，加载资源包本身不会隐藏原版披风。
+  # 资源包始终可选。拒绝或加载失败可以正常游玩，未加载者不穿戴也不观看披风。
+  # 保留此旧键便于升级；即使改为true，插件也不会强制加载或踢出玩家。
+  required: false

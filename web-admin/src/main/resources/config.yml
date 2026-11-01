@@ -1,0 +1,7 @@
+# 默认仅监听本机；远程管理建议使用 SSH 隧道或 HTTPS 反向代理。
+bind: 127.0.0.1
+port: 27780
+# 使用 HTTPS 反向代理时填写其完整站点地址，不支持路径前缀。
+# 例如 https://cape-admin.example.com
+public-base-url: ''
+backup-limit: 20

@@ -1,0 +1,1 @@
+{"model":{"type":"minecraft:range_dispatch","property":"minecraft:custom_model_data","index":0,"fallback":{"type":"minecraft:model","model":"minecraft:item/paper"},"entries":"__CAPE_ENTRIES__"}}

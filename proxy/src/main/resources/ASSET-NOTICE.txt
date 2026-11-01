@@ -1,0 +1,1 @@
+default-elytra.png: Minecraft Java 1.20.1 client texture, Mojang/Microsoft. Used only for the vanilla-wing fallback so unselected players retain the default appearance. Custom cape atlas/model generation and other source code are CapeBridge.

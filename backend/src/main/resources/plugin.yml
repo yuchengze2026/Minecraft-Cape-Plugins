@@ -1,0 +1,22 @@
+name: CapeBridgeBackend
+main: dev.capebridge.backend.CapeBackend
+version: '1.0'
+depend: [packetevents]
+softdepend: [ViaVersion]
+api-version: '1.20'
+author: CapeBridge
+commands:
+  dynamiccape:
+    description: Open animated cape wardrobe
+    aliases: [dcape, 动态披风]
+  cape:
+    description: Open the network cape wardrobe
+    aliases: [capes, pifeng, 披风]
+  capebridge:
+    description: Local diagnostic and rendering controls
+    permission: capebridge.admin
+permissions:
+  capebridge.use:
+    default: true
+  capebridge.admin:
+    default: op

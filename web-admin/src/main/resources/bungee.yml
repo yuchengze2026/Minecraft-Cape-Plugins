@@ -1,0 +1,5 @@
+name: CapeBridgeWebAdmin
+main: dev.capebridge.web.CapeBridgeWebAdmin
+version: '1.0'
+author: CapeBridge
+depends: [CapeBridgeProxy]

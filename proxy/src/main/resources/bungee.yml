@@ -1,0 +1,11 @@
+name: CapeBridgeProxy
+main: dev.capebridge.proxy.CapeProxy
+version: '1.0'
+author: CapeBridge
+description: Network-wide cape assignments and resource catalog
+
+softDepends: [LuckPerms]
+
+
+
+

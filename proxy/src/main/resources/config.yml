@@ -1,0 +1,17 @@
+# BC is the authority. Copy the generated secret into every backend config.yml.
+sync-secret: GENERATE_ON_FIRST_START
+resource-pack:
+  # Embedded server exposes ONLY /capes.zip; no configuration files are served.
+  embedded-host: true
+  bind: 127.0.0.1
+  port: 25680
+  # Per TCP source address; forwarded headers are not trusted. Shared proxies/NAT share this limit.
+  requests-per-minute: 600
+  # For real players, use a reachable domain/IP and configure the bind address.
+  public-url: http://127.0.0.1:25680/capes.zip
+  # 使用 BC 获取的玩家真实地址匹配。转子服时沿用同一次资源包会话。
+  local-routing:
+    enabled: true
+    # 改为本机可达的内网 IP 和资源包端口；其他电脑不能使用 127.0.0.1。
+    url: http://127.0.0.1:25680/capes.zip
+    networks: ['127.0.0.0/8', '10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16', '::1/128', 'fc00::/7']

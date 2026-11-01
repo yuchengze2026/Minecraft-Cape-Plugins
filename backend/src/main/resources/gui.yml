@@ -1,0 +1,95 @@
+# GUI 全部可见文本；15款/页，右侧详情，青色分隔，底部导航。
+title: '&3&l披风衣橱 &8| &7{page}/{pages}'
+dynamic-title: '&5&l动态披风 &8| &7{page}/{pages}'
+dynamic-header:
+  name: '&d&l动态贴图收藏'
+  lore: ['&7贴图自动循环播放', '&8第 {page} / {pages} 页 · {count} 款']
+dynamic-empty:
+  name: '&7暂无动态披风'
+  lore: ['&7请管理员在网页上传动画帧']
+dynamic-menu:
+  name: '&d动态披风'
+  lore: ['&7打开动态贴图披风面板']
+static-menu:
+  name: '&b静态披风'
+  lore: ['&7返回普通披风衣橱']
+frame:
+  name: ' '
+  lore: []
+divider:
+  name: ' '
+  lore: []
+header:
+  name: '&b&l你的披风收藏'
+  lore:
+  - '&7挑选你的专属风格'
+  - '&8第 {page} / {pages} 页  ·  {count} 款'
+empty:
+  name: '&8暂无披风'
+  lore: []
+entry:
+  name: '{name-color}{cape}'
+  lore:
+  - '&7专属外观 · 跨服同步'
+  - ''
+  - '{wear-state}'
+  - '{access-state}'
+  - '{pack-state}'
+states:
+  name-available: '&f'
+  name-locked: '&8'
+  worn: '&a● 正在穿戴'
+  choose: '&7点击查看样式'
+  available: '&7点击选中 · 右侧试穿 / 穿戴'
+  locked: '&c尚未解锁'
+  pack-needed: '&e接受资源包后可看完整图案'
+  synced: '&8披风衣橱 · 全服同步'
+preview-heading:
+  name: '&e&l样式预览'
+  lore:
+  - '&7左侧选择款式'
+  - '&7当前选择：{focus-cape}'
+  - '&7下方可临时试穿'
+no-focus:
+  name: '&7还没有可选披风'
+  lore: []
+instructions:
+  name: '&b穿戴说明'
+  lore:
+  - '&7成功加载服务器资源包后隐藏原版披风'
+  - '&7拒绝或加载失败时显示原版披风'
+  - '&7装备鞘翅时暂停显示服务器披风'
+preview:
+  name: '&b&l试穿预览'
+  lore:
+  - '&7临时试穿，仅自己可见'
+  - '&7关闭菜单后按 F5 查看'
+  - '&8不会修改已保存的披风'
+confirm:
+  name: '&a&l确认佩戴'
+  lore:
+  - '&7穿上「{focus-cape}」'
+  - '&7换子服后继续穿戴'
+end-preview:
+  name: '&7结束试穿'
+  lore:
+  - '&7恢复已保存的披风'
+previous-page:
+  name: '&f上一页'
+  lore: []
+next-page:
+  name: '&f下一页'
+  lore: []
+remove:
+  name: '&c取下披风'
+  lore:
+  - '&7取消已保存的佩戴'
+selected:
+  name: '&6当前佩戴'
+  lore:
+  - '{selected}'
+  none: '&7未佩戴'
+  value: '&f{cape}'
+close:
+  name: '&7关闭菜单'
+  lore: []

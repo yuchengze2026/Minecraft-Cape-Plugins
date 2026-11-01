@@ -1,0 +1,1 @@
+Core shader sources adapted from Mojang/Microsoft Minecraft Java official clients 1.20.1 through 26.3. CapeBridge additions only recognize owner-specific cape tint, restore neutral colour and clip cape fragments within 1.65 blocks of the camera. Original pipeline definitions, fog, lighting, transparency and OIT branches are preserved. SHA-1 provenance: compat/provenance.json.

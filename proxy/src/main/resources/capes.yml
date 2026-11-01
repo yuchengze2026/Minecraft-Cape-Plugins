@@ -1,0 +1,16 @@
+# Put 5:8 front-art PNGs in capes/. Example: 40x64, 160x256; <=1 MiB, <=512px.
+# New filenames (lowercase IDs) are imported automatically by /bcape reload.
+# Each cape requires capebridge.cape.<id>; capebridge.cape.all unlocks every cape.
+capes:
+  black:
+    name: '玄墨 · 纯黑'
+    enabled: true
+    type: BLOCK
+    material: BLACK_CONCRETE
+    permission: capebridge.cape.black
+  white:
+    name: '霜雪 · 纯白'
+    enabled: true
+    type: BLOCK
+    material: WHITE_CONCRETE
+    permission: capebridge.cape.white

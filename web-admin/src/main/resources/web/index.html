@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="{{web.language}}">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{web.html.text-001}}</title><link rel="stylesheet" href="/styles.css"><script src="/animation.js" defer></script><script src="/app.js" defer></script></head>
+<body>
+<header class="topbar"><a class="brand" href="/"><svg viewBox="0 0 32 36" aria-hidden="true"><path d="M7 3h18l3 29-12-5-12 5z"/><path d="M10 8h12M11 13h10"/></svg><span>{{web.html.text-002}}<small>{{web.html.text-003}}</small></span></a><div class="top-actions"><span id="connection" class="pill">{{web.html.text-004}}</span><button id="logout" class="quiet" hidden>{{web.html.text-005}}</button></div></header>
+<main>
+ <section id="login-panel" class="login panel">
+  <span class="eyebrow">{{web.html.text-006}}</span><h1>{{web.html.text-007}}</h1><p>{{web.html.text-008}} <code>{{web.html.text-009}}</code>{{web.html.text-010}}</p>
+  <form id="login-form"><label for="login-code">{{web.html.text-011}}</label><input id="login-code" name="code" type="password" autocomplete="one-time-code" maxlength="64" required placeholder="{{web.html.text-071}}"><button class="primary" type="submit">{{web.html.text-012}} <span aria-hidden="true">{{web.html.text-013}}</span></button></form>
+  <p id="login-error" class="error" role="alert"></p><p class="fine">{{web.html.text-014}}</p>
+ </section>
+ <div id="workspace" hidden>
+  <div class="page-heading"><div><span class="eyebrow">{{web.html.text-015}}</span><h1>{{web.html.text-016}}</h1><p>{{web.html.text-017}}</p></div><button id="pack-download" class="secondary">{{web.html.text-018}}</button></div>
+  <div class="workbench">
+   <section class="panel editor" aria-labelledby="upload-title">
+    <div class="section-heading"><h2 id="upload-title">{{web.html.text-019}}</h2><span class="step">{{web.html.text-020}}</span></div>
+    <input id="file" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+    <button id="dropzone" class="dropzone" type="button"><span class="upload-icon" aria-hidden="true">{{web.html.text-021}}</span><strong id="file-label">{{web.html.text-022}}</strong><span>{{web.html.text-023}}</span><span class="drop-help">{{web.html.text-024}}</span></button>
+    <div id="analysis" class="analysis" aria-live="polite">{{web.html.text-025}}</div>
+    <div class="field-grid"><label>{{web.html.text-026}} <input id="cape-id" maxlength="32" placeholder="{{web.html.text-072}}" pattern="[a-z0-9_-]{1,32}" required><span class="fine">{{web.html.text-027}}</span></label><label>{{web.html.text-028}} <input id="cape-name" maxlength="20" placeholder="{{web.html.text-073}}" required><span class="fine">{{web.html.text-029}}</span></label></div>
+    <div class="field-grid"><label>{{web.html.text-030}} <select id="layout"><option value="auto">{{web.html.text-031}}</option><option value="front">{{web.html.text-032}}</option><option value="atlas">{{web.html.text-033}}</option></select></label><label>{{web.html.text-034}} <select id="resolution"><option value="auto">{{web.html.text-035}}</option><option value="64">{{web.html.text-036}}</option><option value="128">{{web.html.text-037}}</option><option value="256">{{web.html.text-038}}</option><option value="512">{{web.html.text-039}}</option></select></label></div>
+    <details id="advanced"><summary>{{web.html.text-040}}</summary><div class="field-grid"><label>{{web.html.text-041}} <select id="fit"><option value="cover">{{web.html.text-042}}</option><option value="contain">{{web.html.text-043}}</option></select></label><label>{{web.html.text-044}} <select id="sampling"><option value="pixel">{{web.html.text-045}}</option><option value="smooth">{{web.html.text-046}}</option></select></label></div><div class="field-grid"><label>{{web.html.text-047}} <input id="align-x" type="range" min="0" max="100" value="50"></label><label>{{web.html.text-048}} <input id="align-y" type="range" min="0" max="100" value="50"></label></div><label class="check"><input id="trim" type="checkbox" checked> {{web.html.text-049}}</label><p class="fine">{{web.html.text-050}}</p></details>
+    <label class="check replace"><input id="replace" type="checkbox">{{web.html.text-051}}</label>
+    <div class="actions"><button id="repair" class="secondary" disabled>{{web.html.text-052}}</button><button id="upload" class="primary" disabled>{{web.html.text-053}} <span aria-hidden="true">{{web.html.text-013}}</span></button></div>
+    <div id="result" class="result" role="status" aria-live="polite" hidden></div>
+   </section>
+   <section class="panel preview" aria-labelledby="preview-title"><div class="section-heading"><h2 id="preview-title">{{web.html.text-054}}</h2><span id="output-badge" class="pill">{{web.html.text-055}}</span></div><div class="preview-stage"><canvas id="cape-preview" width="560" height="520" aria-label="{{web.html.text-074}}"></canvas><div id="preview-empty"><span class="empty-cape" aria-hidden="true"></span><p>{{web.html.text-056}}</p><span>{{web.html.text-057}}</span></div></div><div class="view-controls" role="group" aria-label="{{web.html.text-075}}"><button data-view="front" class="selected">{{web.html.text-058}}</button><button data-view="back">{{web.html.text-059}}</button><button data-view="angle">{{web.html.text-060}}</button></div><p class="fine centered">{{web.html.text-061}}</p><div class="atlas-heading"><h3>{{web.html.text-062}}</h3><button id="png-download" class="text-button" disabled>{{web.html.text-063}}</button></div><div class="atlas-stage"><canvas id="atlas-preview" width="512" height="256" aria-label="{{web.html.text-076}}"></canvas></div><p id="output-info" class="fine">{{web.html.text-064}}</p></section>
+  </div>
+  <section class="panel animation-editor" id="animation-panel">
+   <div class="section-heading"><h2>{{web.dynamic.title}}</h2><span class="pill">{{web.dynamic.native}}</span></div>
+   <p class="fine">{{web.dynamic.help}}</p>
+   <div class="field-grid"><label>{{web.html.text-026}}<input id="animation-id" maxlength="32" pattern="[a-z0-9_-]{1,32}"></label><label>{{web.html.text-028}}<input id="animation-name" maxlength="20"></label></div>
+   <div class="field-grid"><label>{{web.dynamic.files}}<input id="animation-files" type="file" multiple accept="image/png,image/gif"></label><label>{{web.dynamic.ticks}}<input id="animation-ticks" type="number" min="1" max="200" value="2"></label></div>
+   <label class="check" id="animation-gif-settings" hidden><input id="animation-gif-timing" type="checkbox" checked>{{web.dynamic.gif-timing}}</label><p class="fine">{{web.dynamic.gif-help}}</p>
+   <div class="field-grid"><label>{{web.dynamic.arrangement}}<select id="animation-arrangement"><option value="strip">{{web.dynamic.strip}}</option><option value="grid">{{web.dynamic.grid}}</option></select></label><label>{{web.html.text-030}}<select id="animation-layout"><option value="auto">{{web.dynamic.auto}}</option><option value="atlas">{{web.dynamic.atlas}}</option><option value="front">{{web.dynamic.front}}</option></select></label></div>
+   <div id="animation-grid-settings" hidden><div class="field-grid"><label>{{web.dynamic.columns}}<input id="animation-columns" type="number" min="1" max="64" step="1" value="8"></label><label>{{web.dynamic.rows}}<input id="animation-rows" type="number" min="1" max="64" step="1" value="8"></label></div><p class="fine">{{web.dynamic.order}}</p></div>
+   <div class="field-grid"><label>{{web.html.text-034}}<select id="animation-resolution"><option>64</option><option selected>128</option><option>256</option><option>512</option></select></label><label>{{web.dynamic.fit}}<select id="animation-fit"><option value="contain">{{web.dynamic.contain}}</option><option value="cover">{{web.dynamic.cover}}</option></select></label></div>
+   <label class="check"><input id="animation-replace" type="checkbox">{{web.html.text-051}}</label>
+   <canvas id="animation-preview" width="100" height="160" aria-label="{{web.dynamic.preview}}"></canvas>
+   <p id="animation-analysis" class="fine" role="status">{{web.dynamic.empty}}</p>
+   <div class="actions"><button id="animation-upload" class="primary" disabled>{{web.dynamic.upload}}</button><button id="animation-download" class="secondary" disabled>{{web.dynamic.download}}</button><button id="animation-metadata" class="secondary" disabled>{{web.dynamic.gif-metadata}}</button></div>
+  </section>
+  <section class="library" aria-labelledby="library-title"><div class="section-heading"><div><h2 id="library-title">{{web.html.text-065}} <span id="cape-count" class="count">{{web.html.text-066}}</span></h2><p class="fine">{{web.html.text-067}}</p></div><button id="refresh" class="quiet">{{web.html.text-068}}</button></div><div id="cape-grid" class="cape-grid"></div><p id="library-empty" class="fine" hidden>{{web.html.text-069}}</p></section>
+  <footer><p>{{web.html.text-070}}</p><p id="distribution" class="fine"></p></footer>
+ </div>
+</main><div id="toast" class="toast" role="status" hidden></div>
+</body></html>
