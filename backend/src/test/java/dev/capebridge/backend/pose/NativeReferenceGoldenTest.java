@@ -2,19 +2,21 @@ package dev.capebridge.backend.pose;
 
 import com.google.gson.*;
 import org.junit.jupiter.api.Test;
-import java.nio.file.*;
+import java.nio.charset.StandardCharsets;
 import java.io.*;
 import java.util.*;
+import java.util.zip.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class NativeReferenceGoldenTest {
     @Test void portableCalculationMatchesOfficialNativePoseCorpus()throws Exception{
-        Path corpus=Path.of(System.getProperty("basedir"),"../collector/corpus").normalize();
         int cases=0,versions=0;double maxError=0,maxMatrixError=0;List<String> failures=new ArrayList<>();
-        try(var files=Files.list(corpus)){
-            for(Path file:files.filter(p->p.toString().endsWith(".jsonl")).sorted().toList()){
-                String version=file.getFileName().toString().replace(".jsonl","");var model=NativeReferenceModel.load(version);versions++;
-                try(var reader=Files.newBufferedReader(file)){String line;
+        try(var corpus=new ZipInputStream(Objects.requireNonNull(getClass().getResourceAsStream("/native-reference-corpus.zip"),"Missing bundled native reference test corpus"))){
+            for(ZipEntry file;(file=corpus.getNextEntry())!=null;){
+                if(file.isDirectory()||!file.getName().endsWith(".jsonl"))continue;
+                String version=file.getName().replace(".jsonl","");var model=NativeReferenceModel.load(version);versions++;
+                // The outer ZIP owns the stream; do not close it after each entry.
+                {var reader=new BufferedReader(new InputStreamReader(corpus,StandardCharsets.UTF_8));String line;
                     while((line=reader.readLine())!=null){
                         var golden=JsonParser.parseString(line).getAsJsonObject();var s=golden.getAsJsonObject("input");
                         var input=new NativeReferenceModel.Input(golden.get("slim").getAsBoolean(),golden.get("mainArm").getAsString().equals("LEFT"),s.get("phase").getAsFloat(),s.get("speed").getAsFloat(),s.has("age")?s.get("age").getAsFloat():40,s.get("yaw").getAsFloat(),s.get("pitch").getAsFloat(),s.get("crouch").getAsBoolean(),s.get("riding").getAsBoolean(),s.get("gliding").getAsBoolean(),s.get("attack").getAsFloat(),s.get("swim").getAsFloat(),1);

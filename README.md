@@ -115,3 +115,5 @@ web-admin/target/capebridge-web-admin-1.0.jar
 
 四个正式模块为 common、proxy、backend、web-admin。构建依赖由 Maven 获取，包内不附带 Minecraft 核心或第三方插件 JAR。
 
+原版参考回归测试所需的 23 版本、18,308 组参数化姿态用例，已压缩包含在 `backend/src/test/resources/native-reference-corpus.zip`；不需要另行获取 collector 或私人研究目录。测试数据仅含合成模型姿态，不含玩家身份或世界轨迹。
+

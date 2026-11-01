@@ -23,3 +23,6 @@ system-rdp/
 *.key
 *.pem
 .env
+
+# Public, synthetic test fixture required by the golden regression test.
+!backend/src/test/resources/native-reference-corpus.zip
