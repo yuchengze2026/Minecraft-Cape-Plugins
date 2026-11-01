@@ -18,7 +18,6 @@ plugins/
 database/
 backups/
 assignments.properties
-system-rdp/
 *.cnf
 *.key
 *.pem
