@@ -116,3 +116,7 @@ web-admin/target/capebridge-web-admin-1.0.jar
 
 原版参考回归测试所需的 23 版本、18,308 组参数化姿态用例，已压缩包含在 `backend/src/test/resources/native-reference-corpus.zip`；不需要另行获取 collector 或私人研究目录。测试数据仅含合成模型姿态，不含玩家身份或世界轨迹。
 
+
+
+特别鸣谢：GordonHim                                                                                       服务器支持：GordonHim.com
+
